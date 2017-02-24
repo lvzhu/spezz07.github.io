@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            display:none;
+            margin:0;
+        }
+        .checkbox1+label{
+            display:flex;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .checkbox1:checked+label,.radio1:checked+label{
+            border: 1px solid #ff919f;
+        }
+        .checkbox1:checked+label::after{
+            margin: auto;
+            content: '\2714';
+            color: #ff919f;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .radio1+label{
+            display:inline-flex;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+        }
+        .radio1:checked+label::after{
+            margin: auto;
+            content: '';
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #ff919f;
+        }
+
+    </style>
+</head>
+<body>
+<div >
+    <h3>checkbox</h3>
+    <input type="checkbox" name="" id="checkbox1" class="checkbox1"/>
+    <label for="checkbox1"></label>
+</div>
+<div >
+    <h3>radio</h3>
+    <input type="radio" name="radio1" id="radio1" class="radio1">
+    <label for="radio1"></label>
+    <input type="radio" name="radio1" id="radio2" class="radio1">
+    <label for="radio2"></label>
+</div>
+
+
+</body>
+</html>
+<script>
+
+
+</script>
