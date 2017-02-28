@@ -12,9 +12,10 @@
             margin: 100px auto;
             width: 800px;
             height: 600px;
-            position: relative;
+            position: relative；
 
         }
+        /*字体渐变下的透明层*/
         .masked-container{
             opacity: 0;
             width: 540px;
@@ -36,6 +37,7 @@
             top:0;
             left: 0;
         }
+        /*字体渐变*/
         .masked{
             background-image: -webkit-linear-gradient(right, rgb(177,248,244),rgb(177,214,248) 25%, rgb(177,189,248) 50%, rgb(248,177,177) 75%,rgb(177,248,244));
             -webkit-text-fill-color: transparent;
@@ -47,6 +49,7 @@
             font-size: 30px;
 
         }
+        /*字体上浮效果*/
         .masked h4{
             padding-top:36px;
             transition: padding-top 0.6s cubic-bezier(0.6, 0.1, 0, 0.98)
@@ -59,7 +62,7 @@
             0%  { background-position: 0 0;}
             100% { background-position: 100% 0;}
         }
-
+        /*构建四条边框*/
         .border1::before,
         .border1::after,
         .border2::before,
@@ -108,7 +111,7 @@
             transform: scale3d(1, 1, 1);
         }
 
-
+        /*图片模糊*/
         .content:hover>.bg:hover, .masked-container:hover+.bg{
             transition: filter,1s,ease-in;
             -webkit-filter: blur(4px);
@@ -129,14 +132,11 @@
             <div class="border2">
                 <div class="masked">
                     <h4>欢迎参加百度前端学院</h4>
-
                     <h4>点击进入</h4>
                 </div>
             </div>
-
         </div>
-
-        </div>
+    </div>
     <div class="bg">
         <img src="./image/wallpaper.jpg" alt="" style="width: 800px;height: 600px">
     </div>
