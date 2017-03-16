@@ -14,6 +14,9 @@
         li,ul{
             list-style: none;
         }
+        body{
+            background-color: #eee;
+        }
         .header{
             width: 100%;
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -55,7 +58,6 @@
             color: #aaaaaa
         }
         .container{
-            background-color: #eee;
             padding: 24px;
         }
         .content,.content-table,.pic,.content-other{
@@ -65,6 +67,7 @@
             box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
             padding: 18px;
         }
+
         .content h2,.content-table h2{
             margin-bottom: 22px;
         }
@@ -74,12 +77,17 @@
             color: #999999;
             margin-bottom: 16px;
         }
+        .content img{
+            width: calc(75% );
+            max-width: 560px;
+        }
         .textheader{
             text-indent: 2em;
         }
         .pic{
             display: flex;
             justify-content: center;
+            align-items: center;
             flex-wrap:wrap;
         }
         .pic-container{
@@ -91,8 +99,8 @@
 
         .pic-container img{
             margin: 16px;
-            width: 128px;
-            height: 128px;
+            max-width: 128px;
+            max-height: 128px;
         }
         .content-table h3~span{
             display: inline-block;
@@ -111,7 +119,6 @@
         }
         .content-table-list{
             border-collapse:collapse;
-
             width: 100%;
             border: 1px solid #dddddd;
         }
@@ -130,7 +137,6 @@
       .content-other-title{
           height: 36px;
           width: 100%;
-
           border-left:2px solid #d2d2d2;
       }
         .content-other-title h3{
@@ -138,14 +144,16 @@
             line-height: 36px;
         }
         .content-other-container{
-            width:600px;
-            margin: 20px auto;
+        }
+        .content-other-mail{
+            width: 100%;
+            display: inline-block;
         }
         .content-other-mail p,.content-other-pw p{
+            width: 100%;
             font-size: 14px;
             color: #aaaaaa;
             margin-top: 12px;
-            margin-left:128px;
         }
         .content-other-pw span{
             display: inline-block;
@@ -154,12 +162,12 @@
         .content-other-sex,.content-other-city,.content-other-hobby{
             margin-top: 14px;
             display: block;
-            margin-left: 80px;
+
         }
         .content-other-des{
             display: inline-block;
             margin-top: 14px;
-            margin-left: 50px;
+
         }
         .content-other-des span{
             vertical-align: text-top;
@@ -175,7 +183,28 @@
             text-align: center;
             color: #ffffff;
         }
-
+        .footer{
+            width: 100%;
+            text-align: center;
+            background-color: #191919;
+            color: #fff;
+            height: 64px;
+            line-height: 64px;
+        }
+         .content-other{
+             float: right;
+             text-align: center;
+         }
+         .container-left{
+             margin-right: 420px;
+         }
+        .container:after,.container:after{
+            content:".";
+            display:block;
+            height:0;
+            clear:both;
+            visibility:hidden
+        }
     </style>
 </head>
 
@@ -193,134 +222,142 @@
     </ul>
 </div>
 <div class="container">
-    <div class="content" id="link1">
-        <h2>文章一级标题</h2>
-        <h3>文章二级标题</h3>
-        <p class="textheader">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落<a href="https://github.com/spezz07">这是a标签，连接到我的github</a>这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <br>
-        <img src="img1.png" alt="">
-        <br>
-        <br>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-    </div>
-    <div class="content" id="link2">
-        <h2>文章一级标题</h2>
-        <h3>文章二级标题</h3>
-        <p class="textheader">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落<a href="https://github.com/spezz07">这是a标签，连接到我的github</a>这是一个很长很长的段落</p>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <br>
-        <img src="img1.png" alt="">
-        <br>
-        <br>
-        <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
-        <ul  class="textheader">
-            <li>列表项目一</li>
-            <li>列表项目二</li>
-            <li>列表项目三</li>
-        </ul>
-    </div>
-    <div class="pic" id="link3">
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-        <div class="pic-container">
-            <p>好看的图片</p>
-            <img src="img1.png" alt="">
-        </div>
-
-
-    </div>
-    <div class="content-table" id="link4">
-        <h2>最后一篇文章</h2>
-        <h3>文章二级标题</h3>
-        <span >文章作者</span>&nbsp;&nbsp;<span>发表时间</span>
-        <ol>
-            <li>排名1</li>
-            <li>排名2</li>
-            <li>排名3</li>
-        </ol>
-        <br>
-        <p>这是一个表格</p>
-        <table class="content-table-list">
-            <th>表头</th><th>表头</th><th>表头</th>
-            <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
-            <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
-            <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
-            <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
-            <tr><td>总计</td><td colspan="2">1000</td></tr>
-        </table>
-    </div>
     <div class="content-other">
         <div class="content-other-title">
             <h3>这里以后是一个侧栏，这个是侧栏的标题</h3>
         </div>
-      <div class="content-other-container">
-          <div class="content-other-mail">
-              <span>请输入邮箱地址：</span><input type="text" placeholder="这是一个文本输入框">
-              <p>邮箱地址请按要求格式输入</p>
-          </div>
-          <div class="content-other-pw">
-              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<span>请输入密码：</span><input type="password" placeholder="这是一个文本输入框">
-              <br>
-              <span>请重复输入密码：</span><input type="password" placeholder="这是一个文本输入框">
-          <p>密码为6-16为英文数字</p>
-          </div>
-          <div class="content-other-sex">
-              <span>性别：</span><input type="radio" name="gender" id="man"><label for="man">男</label><input type="radio" name="gender" id="wonen"><label for="wonen">女</label>
-          </div>
-        <div class="content-other-city">
-            <span>城市：</span>
-            <select>
-                <option>北京</option>
-                <option>上海</option>
-                <option selected="selected">深圳</option>
-                <option>广州</option>
-            </select>
+        <div class="content-other-container">
+            <div class="content-other-mail">
+                <span>请输入邮箱地址：</span><input type="text" placeholder="这是一个文本输入框">
+                <p>邮箱地址请按要求格式输入</p>
+            </div>
+            <div class="content-other-pw">
+            <span>请输入密码：</span><input type="password" placeholder="这是一个文本输入框">
+                <br>
+                <span>请重复输入密码：</span><input type="password" placeholder="这是一个文本输入框">
+                <p>密码为6-16为英文数字</p>
+            </div>
+            <div class="content-other-sex">
+                <span>性别：</span><input type="radio" name="gender" id="man"><label for="man">男</label><input type="radio" name="gender" id="wonen"><label for="wonen">女</label>
+            </div>
+            <div class="content-other-city">
+                <span>城市：</span>
+                <select>
+                    <option>北京</option>
+                    <option>上海</option>
+                    <option selected="selected">深圳</option>
+                    <option>广州</option>
+                </select>
+            </div>
+            <div class="content-other-hobby">
+                <span>爱好：</span>
+                <label><input type="checkbox" name="hobby">运动</label>
+                <label><input type="checkbox" name="hobby">艺术</label>
+                <label><input type="checkbox" name="hobby">科学</label>
+            </div>
+            <div class="content-other-des">
+                <span>个人描述：</span><textarea name="des" >这是一个多行输入框 </textarea>
+            </div>
+            <input type="button" value="确定提交" class="content-other-button">
         </div>
-        <div class="content-other-hobby">
-            <span>爱好：</span>
-            <label><input type="checkbox" name="hobby">运动</label>
-            <label><input type="checkbox" name="hobby">艺术</label>
-            <label><input type="checkbox" name="hobby">科学</label>
+    </div>
+    <div class="container-left">
+        <div class="content" id="link1">
+            <h2>文章一级标题</h2>
+            <h3>文章二级标题</h3>
+            <p class="textheader">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落<a href="https://github.com/spezz07">这是a标签，连接到我的github</a>这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <br>
+            <img src="../img/img1.png" alt="">
+            <br>
+            <br>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个1很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
         </div>
-          <div class="content-other-des">
-              <span>个人描述：</span><textarea name="des" rows="5" cols="60">这是一个多行输入框 </textarea>
-          </div>
-          <input type="button" value="确定提交" class="content-other-button">
-      </div>
+        <div class="content" id="link2">
+            <h2>文章一级标题</h2>
+            <h3>文章二级标题</h3>
+            <p class="textheader">这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落<a href="https://github.com/spezz07">这是a标签，连接到我的github</a>这是一个很长很长的段落</p>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <br>
+            <img src="../img/img1.png" alt="">
+            <br>
+            <br>
+            <p>这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落这是一个很长很长的段落</p>
+            <ul  class="textheader">
+                <li>列表项目一</li>
+                <li>列表项目二</li>
+                <li>列表项目三</li>
+            </ul>
+        </div>
+        <div class="pic" id="link3">
+            <div class="pic-container">
+                <p>好看的图片</p>
+                <img src="../img/img1.png" alt="">
+            </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div> <div class="pic-container">
+            <p>好看的图片</p>
+            <img src="../img/img1.png" alt="">
+        </div>
+        </div>
+        <div class="content-table" id="link4">
+            <h2>最后一篇文章</h2>
+            <h3>文章二级标题</h3>
+            <span >文章作者</span>&nbsp;&nbsp;<span>发表时间</span>
+            <ol>
+                <li>排名1</li>
+                <li>排名2</li>
+                <li>排名3</li>
+            </ol>
+            <br>
+            <p>这是一个表格</p>
+            <table class="content-table-list">
+                <th>表头</th><th>表头</th><th>表头</th>
+                <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
+                <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
+                <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
+                <tr><td>单元格1</td><td>单元格2</td><td><a href="#">操作</a></td></tr>
+                <tr><td>总计</td><td colspan="2">1000</td></tr>
+            </table>
+        </div>
+    </div>
 
-      </div>
+</div>
 
+<div class="footer">
+    <p>我是页脚</p>
 </div>
 
 </body>
