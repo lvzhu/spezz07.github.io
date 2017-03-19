@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>移动Web页面布局实践</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .header{
+            background-color: #5cdfb3;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+        }
+        .header-back{
+            display: inline-block;
+        }
+        .header-back span{
+              color: #fff;
+              vertical-align: middle;
+        }
+        .header-back img{
+              vertical-align: middle;
+        }
+        .header-title{
+            position  : absolute;
+            top       : 50%;
+            left      : 50%;
+            transform : translate(-50%,-50%);
+            color: #ffffff;
+        }
+        .nav{
+            height: 3rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .navto{
+            text-align: center;
+            width: 20%;
+            color: #191919;
+            padding: 1rem;
+            border-bottom: 4px solid #fff;
+        }
+        .navto:hover{
+            border-bottom: 4px solid #5cdfb3;
+        }
+        .banner img{
+            width: 100%;
+            margin-top: 4px;
+        }
+       .label-container{
+           margin-top: 4px;
+           padding: 0.75rem 0 0.75rem 0;
+           display: flex;
+           justify-content: space-around;
+           align-items: center;
+           border-bottom: 2px solid #f3f3f3;
+       }
+       .label-content{
+           width: 20%;
+           text-align: center;
+           display: flex;
+           justify-content: center;
+           flex-wrap: wrap;
+       }
+       .label-content img{
+            width: 48px;
+            height: 48px;
+       }
+        .column{
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .column-content{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            border-right:2px solid #f3f3f3;
+            padding: 0.5rem;
+        }
+        .column-title-little{
+            font-size: 0.75rem;
+        }
+        .line{
+            width: 100%;
+            height: 1.5rem;
+            background-color: #f3f3f3;
+        }
+        .content-module-title{
+            padding: 0.75rem 0 0.75rem 0;
+            margin-bottom: 2px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .content-container{
+            overflow-y: auto;
+            height: 150px;
+        }
+        .content-module-content{
+            margin-top: 2px;
+            display: flex;
+            padding: 0.5rem;
+        }
+        .content-module-pic{
+            width: 30%;
+        }
+        .content-module-pic img{
+             width:100%;
+            height: 100%;
+        }
+         .content-module-text {
+             width: 70%;
+             margin-left: 4px;
+             display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap;
+        }
+        .content-module-text span{
+            display: inline-block;
+            height: 47%;
+            width: 47%;
+            margin: 1px;
+            align-self:center;
+            text-align: center;
+            font-size: 1rem;
+            background-color: #f1f1f1;
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="header-container">
+    <div class="header">
+        <div class="header-back">
+            <img src="../img/back.png" alt="">
+            <span>返回</span>
+        </div>
+        <div class="header-title">
+            这是标题
+        </div>
+    </div>
+    <div class="nav">
+        <div class="navto">导航</div>
+        <div class="navto">导航</div>
+        <div class="navto">导航</div>
+        <div class="navto">导航</div>
+        <div class="navto">导航</div>
+    </div>
+    <div class="banner">
+        <img src="../img/img1.png" alt="">
+    </div>
+    <div class="label-container">
+        <div class="label-content">
+            <img src="../img/tag.png" alt="">
+            <span>标签</span>
+        </div>
+        <div class="label-content">
+            <img src="../img/tag.png" alt="">
+            <span>标签</span>
+        </div>
+        <div class="label-content">
+            <img src="../img/tag.png" alt="">
+            <span>标签</span>
+        </div>
+        <div class="label-content">
+            <img src="../img/tag.png" alt="">
+            <span>标签</span>
+        </div>
+        <div class="label-content">
+            <img src="../img/tag.png" alt="">
+            <span>标签</span>
+        </div>
+    </div>
+    <div class="column">
+        <div class="column-content">
+            <img src="../img/column1.png" alt="">
+            <span class="column-title">分栏一</span>
+            <span class="column-title-little">分栏小标题</span>
+        </div>
+        <div class="column-content">
+            <img src="../img/column2.png" alt="">
+            <span class="column-title">分栏一</span>
+            <span class="column-title-little">分栏小标题</span>
+        </div>
+        <div class="column-content">
+            <img src="../img/column3.png" alt="">
+            <span class="column-title">分栏一</span>
+            <span class="column-title-little">分栏小标题</span>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+<div class="content-container">
+    <div class="content-module">
+           <div class="content-module-title">
+               模块一
+           </div>
+          <div class="content-module-content">
+              <div class="content-module-pic">
+                  <img src="../img/img1.png" alt="">
+              </div>
+              <div class="content-module-text">
+                  <span>这是文案</span>
+                  <span>这是文案</span>
+                  <span>这是文案</span>
+                  <span>这是文案</span>
+              </div>
+          </div>
+        <div class="content-module-content">
+            <div class="content-module-pic">
+                <img src="../img/img1.png" alt="">
+            </div>
+            <div class="content-module-text">
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+            </div>
+        </div>
+        <div class="content-module-content">
+            <div class="content-module-pic">
+                <img src="../img/img1.png" alt="">
+            </div>
+            <div class="content-module-text">
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+<div class="content-container">
+    <div class="content-module">
+        <div class="content-module-title">
+            模块二
+        </div>
+        <div class="content-module-content">
+            <div class="content-module-pic">
+                <img src="../img/img1.png" alt="">
+            </div>
+            <div class="content-module-text">
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+            </div>
+        </div>
+        <div class="content-module-content">
+            <div class="content-module-pic">
+                <img src="../img/img1.png" alt="">
+            </div>
+            <div class="content-module-text">
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+            </div>
+        </div>
+        <div class="content-module-content">
+            <div class="content-module-pic">
+                <img src="../img/img1.png" alt="">
+            </div>
+            <div class="content-module-text">
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+                <span>这是文案</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="line"></div>
+
+</body>
+</html>
