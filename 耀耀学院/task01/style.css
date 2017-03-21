@@ -1,0 +1,40 @@
+.content{
+    position  : absolute;
+    top       : 50%;
+    left      : 50%;
+    transform : translate(-50%,-50%);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.content span {
+    margin-right: 24px;
+
+}
+.enterbox-container{
+    position: relative;
+}
+.enterbox{
+    display: inline-block;
+    border-radius: 4px;
+    height: 32px;
+    border: 1px solid #aaaaaa;
+    font-size: 24px;
+}
+.enterbox-destext{
+    position: absolute;
+    color: #999999;
+}
+.btn{
+    text-align: center;
+    margin-left: 24px;
+    width: 48px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #338bc1;
+    color: #fff;
+    cursor: pointer;
+}
+.btn:active{
+    background-color: #1e3353;
+}
