@@ -37,4 +37,4 @@
         }
     };
     checkbtn.addEventListener("click",strlength,false) ;
-})()
+})();
