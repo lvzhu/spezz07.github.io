@@ -1,0 +1,53 @@
+.content{
+    position  : absolute;
+    top       : 30%;
+    left      : 50%;
+    transform : translate(-50%,-50%);
+}
+div[class$="-container"] span {
+    margin-right: 24px;
+}
+div[class$="-container"] {
+    position: relative;
+    width: 100%;
+    margin-top: 48px;
+}
+input[class$="-box"]{
+    width: 480px;
+    display: inline-block;
+    border-radius: 4px;
+    height: 32px;
+    border: 1px solid #aaaaaa;
+    font-size: 24px;
+}
+span[class$="-destext"]{
+    position: absolute;
+    color: #999999;
+    left: 64px;
+    bottom: -32px;
+}
+.pwenter-container span{
+    margin-left: -32px;
+}
+.pwenter-destext{
+    position: absolute;
+    color: #999999;
+    bottom: -24px;
+    left: 94px !important;
+}
+.btn{
+    text-align: center;
+    margin-left: 24px;
+    width: 48px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #338bc1;
+    color: #fff;
+    cursor: pointer;
+    position: absolute;
+    bottom: -88px;
+    right: 0;
+}
+.btn:active{
+    background-color: #1e3353;
+}
