@@ -1,3 +1,4 @@
+
 .content{
     position  : absolute;
     top       : 30%;
@@ -20,12 +21,18 @@ input[class$="-box"]{
     border: 1px solid #aaaaaa;
     font-size: 24px;
 }
-span[class$="-destext"]{
+input:focus{
+    box-shadow:2px 3px 10px #67AFEA, 3px -4px 20px #67AFEA;
+    border: 1px solid #67AFEA;
+}
+span[class$="-destext"] {
     position: absolute;
     color: #999999;
     left: 64px;
     bottom: -32px;
+    opacity: 0;
 }
+
 .pwenter-container span{
     margin-left: -32px;
 }
