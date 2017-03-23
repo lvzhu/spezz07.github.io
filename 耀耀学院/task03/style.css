@@ -1,0 +1,38 @@
+.content{
+    position  : absolute;
+    top       : 30%;
+    left      : 50%;
+    transform : translate(-50%,-50%);
+
+}
+.select-area{
+    padding: 48px;
+}
+input[type="radio"]{
+   margin-left: 78px;
+}
+.list,.textarea{
+    margin-left : 48px;
+    display: inline-block;
+}
+.textarea{
+    display: none;
+}
+.list span,.textarea span{
+    margin-right: 12px;
+}
+.school-area,.school,.job-input{
+    border: 1px solid #b4b4b4;
+    border-radius: 4px;
+    padding: 4px;
+    font-size: 16px;
+    width: 128px;
+    color: #191919;
+}
+.school{
+    width: 188px;
+    margin-left: 48px;
+}
+.job-input{
+    width: 300px
+}

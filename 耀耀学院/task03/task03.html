@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单（三）联动</title>
+    <link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="all">
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+</head>
+<body>
+<div class="content">
+    <div class="select-area">
+        <input type="radio" name="isStudent" id="student"  checked="checked"><label for="student">在校生</label>
+        <input type="radio" name="isStudent" id="nostudent"><label for="nostudent">非在校生</label>
+    </div>
+    <div class="list">
+        <span>学校</span>
+        <select class="school-area">
+            <option value="bj">北京</option>
+            <option value="sh">上海</option>
+            <option selected="selected" value="gd">广东</option>
+            <option value="fj">福建</option>
+        </select>
+        <select class="school">
+            <option>中山大学</option>
+            <option>广州大学</option>
+            <option selected="selected">华南理工</option>
+            <option>华南农业大学</option>
+        </select>
+    </div>
+    <div class="textarea">
+        <span>就业单位</span>
+        <input type="text" class="job-input">
+    </div>
+</div>
+
+</body>
+<script src="task03.js"></script>
+</html>
