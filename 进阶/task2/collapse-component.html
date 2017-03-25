@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>collapsible-component</title>
     <style>
-        input[type="radio"]{
+     input[type="radio"]{
             display: none;
         }
       .collapsible-content{
@@ -14,8 +14,10 @@
           color: #333;
           font-size: 14px;
           padding: 15px;
-          display: none;
-          border-top:0
+          opacity: 0;
+          border-top:0;
+          height: 0;
+          transition:opacity 0.5s,height 0.5s;
       }
         .collapsible-radio-label,.collapsible-radio-label-hide{
             color: #333;
@@ -31,12 +33,17 @@
         }
         .collapsible-radio:checked~.collapsible-content{
             display: block;
+            height:150px;
+            opacity: 1;
+
         }
         .collapsible-radio:checked~.collapsible-radio-label{
             display: none;
         }
         .collapsible-radio:checked~.collapsible-radio-label-hide{
             display: block;
+            cursor: pointer;
+
         }
 
     </style>
