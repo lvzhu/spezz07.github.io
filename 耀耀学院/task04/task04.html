@@ -4,55 +4,7 @@
     <meta charset="UTF-8">
     <title>听指令的小方块（一）</title>
     <link rel="stylesheet" type="text/css" href="../../css/normalize.css" media="all">
-    <style>
-        .clearfix:after {
-            content: " ";
-            display: block;
-            clear: both;
-            height: 0;
-        }
-        .clearfix {
-            zoom: 1;
-        }
-
-        .container{
-            margin: 200px auto 0;
-            border: 2px solid #333333;
-            width: 490px;
-            height: 490px;
-            position: relative;
-        }
-        .grid{
-            float: left;
-            width: 48px;
-            height: 48px;
-            border-bottom: 1px solid #ddd;
-            border-right: 1px solid #ddd;
-        }
-        .order{
-            margin: 50px auto;
-            height: 40px;
-            width: 600px;
-            text-align: center;
-        }
-        .order>input{
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            height: 20px;
-            width: 180px;
-        }
-        .movegird{
-            width: 48px;
-            height: 48px;
-            background-color: red;
-            position: absolute;
-        }
-        .movegird-head{
-            width: 100%;
-            height: 12px;
-            background-color: blue;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
 </head>
 <body>
 <div class="container clearfix">
@@ -61,52 +13,14 @@
 </div>
 </div>
 <div class="order">
-    <input type="text" class="orderto"><button>确定</button>
+    <input type="text" class="orderto" placeholder="请输入指令"><button class="enter">执行</button>
+    <br><br>
+    <div>指令有：GO：向蓝色边所面向的方向前进一格</div>
+    <div>TUN LEF：向左转（逆时针旋转90度）</div>
+    <div>TUN RIG：向右转（顺时针旋转90度）</div>
+    <div>TUN BAC：向右转（旋转180度）</div>
 </div>
-
 </body>
-<script>
-    (function () {
-        function $(selector, context) {
-            if (context) {
-                return context.querySelector(selector);
-            }
-            return document.querySelector(selector);
-        }
-        const conw = 490;
-        const conh = 490;
-        const girdsize = 48;
-        function creategird() {
-            let gridnum = (conw/(girdsize+1))*(conh/(girdsize+1));
-            for(let i=0;i<gridnum;i++){
-                let t=document.createElement("div");
-                t.className = "grid";
-                $(".container").appendChild(t);
-            }
-        }
-        function MoveTo() {
-            let command = $(".orderto").value;
-            if(command==="GO"){
-                 Move(left);
-            }
-         }
-        function Move(left,right,top,bottom) {
-            this.left = left;
-            this.right = right;
-            this.top = top;
-            this.button = bottom
-        }
-       Move.prototype ={
-           
-       };
-
-
-        creategird();
-
-
-
-
-
-    })()
+<script src="task04.js">
 </script>
 </html>

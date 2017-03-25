@@ -1,0 +1,51 @@
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+    height: 0;
+}
+.clearfix {
+    zoom: 1;
+}
+
+.container{
+    margin: 200px auto 0;
+    border: 2px solid #333333;
+    width: 490px;
+    height: 490px;
+    position: relative;
+}
+.grid{
+    float: left;
+    width: 48px;
+    height: 48px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.order{
+    margin: 50px auto;
+    height: 40px;
+    width: 600px;
+    text-align: center;
+}
+.order>input{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    height: 20px;
+    width: 180px;
+}
+.movegird{
+    width: 48px;
+    height: 48px;
+    background-color: red;
+    position: absolute;
+}
+.movegird-head{
+    width: 100%;
+    height: 12px;
+    background-color: blue;
+}
+.order>div{
+    font-size: 16px;
+    color: #575757;
+}
