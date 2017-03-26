@@ -65,23 +65,23 @@
         }
     };
     Move.prototype.lef = function () {
-        this.deg+=90;
-        MG.style.transform = "rotate("+ this.deg + "deg)";
-        if(this.direction===3){
-            this.direction = 0
-        }
-        else {
-            this.direction++;
-        }
-    };
-    Move.prototype.rig = function () {
         this.deg-=90;
         MG.style.transform = "rotate("+ this.deg + "deg)";
         if(this.direction===0){
             this.direction = 3
         }
-        else{
+        else {
             this.direction--;
+        }
+    };
+    Move.prototype.rig = function () {
+        this.deg+=90;
+        MG.style.transform = "rotate("+ this.deg + "deg)";
+        if(this.direction===3){
+            this.direction = 0
+        }
+        else{
+            this.direction++;
         }
     };
     Move.prototype.bac = function () {
