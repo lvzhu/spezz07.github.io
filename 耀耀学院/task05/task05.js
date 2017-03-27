@@ -25,6 +25,46 @@
         this.startY = 0;
         this.direction = 0;//方向0为上;1为右;2为下;3为左;
         this.deg = 0;
+        this.init();
+    }
+    Move.prototype.init = function () {
+         let right = ()=>{
+             if (this.startX >= this.EndX - 1) {
+                 alert("出界了")
+             }
+             else {
+                 MG.style.left = (this.startX + 1) * (girdSize + 1) + "px";
+                 this.startX++;
+             }
+         };
+         let left = ()=>{
+             if (this.startX <= 0) {
+                 alert("出界了")
+             }
+             else {
+                 MG.style.left = (this.startX - 1) * (girdSize + 1) + "px";
+                 this.startX--;
+             }
+         };
+         let bottom =()=>{
+             if (this.startY >= this.EndY - 1) {
+                 alert("出界了");
+             }
+             else {
+                 MG.style.top = (this.startY + 1) * (girdSize + 1) + "px";
+                 this.startY++;
+             }
+         };
+         let top = ()=>{
+             if(this.startY<=0){
+                 alert("出界了")
+             }
+             else {
+                 MG.style.top = (this.startY-1)*(girdSize+1)+"px";
+                 this.startY--;
+             }
+         };
+         return {right,left,bottom,top}
     };
     Move.prototype.go = function () {
         if(this.direction===1){
@@ -97,84 +137,37 @@
         }
     };
     Move.prototype.traLef = function () {
-        if (this.startX >= this.EndX - 1) {
-            alert("出界了")
-        }
-        else {
-            MG.style.left = (this.startX + 1) * (girdSize + 1) + "px";
-            this.startX++;
-        }
+        M.init().left();
     };
     Move.prototype.traTop = function () {
-        if(this.startY<=0){
-            alert("出界了")
-        }
-        else {
-            MG.style.top = (this.startY-1)*(girdSize+1)+"px";
-            this.startY--;
-        }
+        M.init().top();
     };
     Move.prototype.traRig = function () {
-        if (this.startX <= 0) {
-            alert("出界了")
-        }
-        else {
-            MG.style.left = (this.startX - 1) * (girdSize + 1) + "px";
-            this.startX--;
-        }
+        M.init().right();
     };
     Move.prototype.traBot = function () {
-        if (this.startY >= this.EndY - 1) {
-            alert("出界了");
-        }
-        else {
-            MG.style.top = (this.startY + 1) * (girdSize + 1) + "px";
-            this.startY++;
-        }
+        M.init().bottom();
     };
     Move.prototype.movLef = function () {
         this.deg = 270;
         MG.style.transform = "rotate("+ this.deg + "deg)";
-        if (this.startX <= 0) {
-            alert("出界了")
-        }
-        else {
-            MG.style.left = (this.startX - 1) * (girdSize + 1) + "px";
-            this.startX--;
-        }
+        M.init().left();
     };
     Move.prototype.movTop = function () {
         this.deg = 0;
-        if(this.startY<=0){
-            alert("出界了")
-        }
-        else {
-            MG.style.top = (this.startY-1)*(girdSize+1)+"px";
-            this.startY--;
-        }
+        MG.style.transform = "rotate("+ this.deg + "deg)";
+        M.init().top();
     };
     Move.prototype.movRig = function () {
         this.deg = 90;
         MG.style.transform = "rotate("+ this.deg + "deg)";
-        if (this.startX >= this.EndX - 1) {
-            alert("出界了")
-        }
-        else {
-            MG.style.left = (this.startX + 1) * (girdSize + 1) + "px";
-            this.startX++;
-        }
+        M.init().right();
 
     };
     Move.prototype.movBot = function () {
         this.deg = 180;
         MG.style.transform = "rotate("+ this.deg + "deg)";
-        if (this.startY >= this.EndY - 1) {
-            alert("出界了");
-        }
-        else {
-            MG.style.top = (this.startY + 1) * (girdSize + 1) + "px";
-            this.startY++;
-        }
+        M.init().bottom();
     };
     function moveTo() {
         let command = $(".orderto").value;
