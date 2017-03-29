@@ -39,5 +39,31 @@
         closelayer(e)
     };
     btn.onclick = openlayer;
+    function drag(elem) {
+        function isTransform() {
+            let transform ;
+            let transformArray = ['transform', 'webkitTransform', 'MozTransform', 'msTransform', 'OTransform'];
+            let tansformdiv = document.createElement("div").style;
+            for(let i=0;i<transformArray.length;i++){
+                if (transformArray[i] in tansformdiv){
+                    console.log(transformArray[i]);
+                    return  transform = transformArray[i]
+                }
+                else {
+                    return false
+                }
+            }
+        }
+        function getStyle(elem, property) {
+            // ie通过currentStyle来获取元素的样式，其他浏览器通过getComputedStyle来获取
+            return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(elem, false)[property] : elem.currentStyle[property];
+        }
+        function elemStartPos(elem) {
+             if(isTransform()){
+
+             }
+        }
+    }
+
 
 })();
