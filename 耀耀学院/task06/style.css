@@ -33,6 +33,7 @@
     border-radius: 8px;
     border: 1px solid #ddd;
     display: none;
+    cursor: pointer;
 }
 .fl-layer-header{
     width: 100%;
