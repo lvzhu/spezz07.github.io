@@ -44,6 +44,10 @@
         let pos = {x:0,y:0};
         let mstartpos = {x:0,y:0};
         let ev=e||window.event;
+        let browerW = document.documentElement.clientWidth;
+        let browerH = document.documentElement.clientHeight;
+        let layerW = parseInt(getStyle(elem,"width"));
+        let layerH = parseInt(getStyle(elem,"height"));
         function getStyle(elem, property) {
             // ie通过currentStyle来获取元素的样式，其他浏览器通过getComputedStyle来获取
             return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(elem, false)[property] : elem.currentStyle[property];
@@ -95,18 +99,37 @@
             elemPos(elem);
             mstartpos.x = mouseStartX;
             mstartpos.y = mouseStartY;
-
-            elem.addEventListener("mouseup",end,false);
+            event.preventDefault()
             elem.addEventListener('mousemove',move,false);
+            elem.addEventListener("mouseup",end,false)
         }
-        function setElemPos(elem,disX,disY) {
-            elem.style.top = disY +"px";
-            elem.style.left = disX +"px"
+        function setElemPos(elem,disX,disY,ev) {
+            let elemLeft = parseInt(elem.style.left);
+            let elemTop = parseInt(elem.style.top);
+            if(elemLeft+layerW>browerW){
+                elem.style.left = browerW - layerW +"px";
+                elem.style.top = disY +"px";
+            }
+            else if(elemLeft < 0){
+                elem.style.left = 0 +"px";
+            }
+            else if(elemTop <0){
+                elem.style.top = 0 +"px"
+            }
+            else if(elemTop+layerH>browerH){
+                elem.style.top = browerH - layerH  +"px"
+
+            }
+            else{
+                elem.style.top = disY +"px";
+                elem.style.left = disX +"px"
+            }
+
         }
         function move(ev) {
             let distanceX = ev.pageX - mstartpos.x;
             let distanceY = ev.pageY - mstartpos.y;
-            setElemPos(elem,(pos.x+distanceX),(pos.y+distanceY))
+            setElemPos(elem,(pos.x+distanceX),(pos.y+distanceY),ev)
         }
         function end() {
             elem.removeEventListener('mousemove',move,false);
@@ -116,5 +139,4 @@
         return{move,start,end}
     };
     layer.addEventListener("mousedown",drag(layer).start,false);
-    layer.addEventListener("mouseup",drag(layer).end,false)
 })();
