@@ -140,27 +140,27 @@
         return{move,start,end}
     };
     layer.addEventListener("mousedown",drag(layer).start,false);*/
-    function Drag(elem) {
+    function Drag(elem) {//构造函数
         this.elem = elem;
         this.startX = 0;
         this.startY = 0;
         this.disX = 0;
         this.disY = 0;
-        this.browerW = document.documentElement.clientWidth;
+        this.browerW = document.documentElement.clientWidth;//浏览器宽度
         this.browerH = document.documentElement.clientHeight;
         this.layerW = parseInt(this.getStyle(this.elem,"width"));
         this.layerH = parseInt(this.getStyle(this.elem,"height"));
         this.init();
     }
     Drag.prototype = {
-        constructor:Drag,
+        constructor:Drag,//constructor指向指回Drag
         init:function () {
             this.elemEvent()
         },
         setElemPos:function () {
             let elemLeft = parseInt(this.elem.style.left);
             let elemTop = parseInt(this.elem.style.top);
-            if (elemLeft + this.layerW > this.browerW) {
+            if (elemLeft + this.layerW > this.browerW) {//判断位置，不过框架会跳动。。
                 this.elem.style.left = this.browerW - this.layerW + "px";
                 this.elem.style.top = this.disY + "px";
             }
@@ -191,8 +191,9 @@
                this.startX = x; this.startY = y;
             }
         },
-        getStyle:(elem,prop)=>{
-            return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(elem, false)[prop] : elem.currentStyle[prop];
+        getStyle:(elem,prop)=>{//返回传入的元素以及指定的css值
+            return document.defaultView.getComputedStyle ? document.defaultView.getComputedStyle(elem, false)[prop] : elem.currentStyle[prop]; //另一种写法(elem.currentStyle||document.defaultView.getComputedStyle)[prop];
+
         },
         elemEvent:function () {
             let _this = this;
@@ -202,7 +203,7 @@
                 mouseStart.x = ev.pageX;
                 mouseStart.y = ev.pageY;
                 _this.elemPos();
-                _this.elem.addEventListener("mousemove",move);
+                _this.elem.addEventListener("mousemove",move);//绑定鼠标动作
                 _this.elem.addEventListener("mouseup",end)
             }
             function move(e) {
