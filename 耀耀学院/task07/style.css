@@ -7,3 +7,82 @@
 .clearfix {
     zoom: 1;
 }
+.container{
+    height: 600px;
+    margin: calc( (100vh - 600px)/2 ) auto 0 auto;
+}
+.table-container{
+    margin: 0 auto;
+    border: 1px solid #e5e5e5;
+    border-collapse:collapse;
+    text-align: center;
+}
+.table-container-header th{
+    color: #fff;
+    background-color: #494949;
+    width: 164px;
+    height: 48px;
+    border: 1px solid #e5e5e5;
+    position: relative;
+}
+.table-container-content td{
+    width: 164px;
+    height: 48px;
+    border: 1px solid #e5e5e5;
+    white-space: nowrap
+}
+.data-import{
+    width: 700px;
+    margin: 48px auto;
+
+}
+.data-import input{
+    width: 128px;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    padding: 8px;
+}
+.data-import button{
+    border: 0;
+    border-radius: 4px;
+    color: #fff;
+    width: 72px;
+    height: 32px;
+    text-align: center;
+    background-color: #3c93cb;
+    cursor: pointer;
+}
+.data-import button:active{
+    background-color: #3875a9;
+}
+.triagle {
+    display: inline-block;
+    width: 16px;
+    height: 32px;
+    position: absolute;
+    right: 16px;
+    top:15%
+
+}
+.triangle-up {
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border: 8px solid #fff;
+    border-color: transparent transparent #fff transparent;
+    cursor: pointer;
+}
+.triangle-down{
+    display: inline-block;
+    height: 0;
+    width: 0;
+    border: 8px solid #fff;
+    border-color: #fff transparent  transparent transparent;
+    cursor: pointer;
+}
+.triangle-up:active{
+    border-color: transparent transparent #a7a7a7 transparent;
+}
+.triangle-down:active{
+    border-color:  #a7a7a7 transparent transparent transparent;
+}

@@ -7,9 +7,35 @@
     <link rel="stylesheet" type="text/css" href="style.css" media="all">
 </head>
 <body>
-<div class="container">
 
+<div class="container">
+    <div class="data-import">
+        <input type="text" class="data-import-name" placeholder="请输入姓名">
+        <input type="text" class="data-import-yuw" placeholder="请输入语文成绩" >
+        <input type="text" class="data-import-shux" placeholder="请输入数学成绩">
+        <input type="text" class="data-import-yingy" placeholder="请输入英语成绩">
+        <button class="data-import-enter">确定</button>
+    </div>
+<table class="table-container">
+    <thead class="table-container-header">
+    <th>姓名
+        <div class="triagle">
+        <span class="triangle-up"></span><span class="triangle-down"></span>
+    </div></th><th>语文<div class="triagle">
+        <span class="triangle-up"></span><span class="triangle-down"></span>
+    </div></th><th>数学<div class="triagle">
+        <span class="triangle-up"></span><span class="triangle-down"></span>
+    </div></th><th>英语<div class="triagle">
+        <span class="triangle-up"></span><span class="triangle-down"></span>
+    </div></th><th>总分<div class="triagle">
+        <span class="triangle-up"></span><span class="triangle-down"></span>
+    </div></th>
+    </thead>
+    <tbody class="table-container-content">
+    </tbody>
+</table>
 </div>
+
 </body>
 <script src="task07.js">
 </script>
