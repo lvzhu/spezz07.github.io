@@ -13,7 +13,7 @@
     const tableContent = $(".table-container-content");
     const trelem = document.querySelectorAll(".triagle");
     let order = [0,0];//order[0]代表点击的项目，0为语文，1为数学。。依次类推 order[1]代表点击状态0为上，1为下
-    function clickTarget(e)                                                     {
+    function clickTarget(e){
         let ev = e||window.event;
         if(ev.target.className==="triangle-up"){
             order[1] = 0;
@@ -67,7 +67,7 @@
             }
         }
         tableContent.innerHTML ="";
-        for (let k =1;k<trArray.length;k++){
+        for (let k = 1;k<trArray.length;k++){
             tableContent.innerHTML+=trArray[k].innerHTML;
         }
     }
@@ -100,8 +100,8 @@
         new Sroce(yuwen,shuxue,yingyu,name)
     };
     for (let i = 0; i<trelem.length;i++){
-        trelem[i].addEventListener("click",clickTarget,false);
-        trelem[i].addEventListener("click",sortSorce,false)
+        trelem[i].addEventListener("click",clickTarget);
+        trelem[i].addEventListener("click",sortSorce)
     }
 
 })();

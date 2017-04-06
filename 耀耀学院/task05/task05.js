@@ -64,7 +64,7 @@
                  this.startY--;
              }
          };
-         return {right,left,bottom,top}
+         return {right,left,bottom,top}//es6写法
     };
     Move.prototype.go = function () {
         if(this.direction===1){
