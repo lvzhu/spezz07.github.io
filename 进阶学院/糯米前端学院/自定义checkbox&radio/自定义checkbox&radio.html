@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            display:none;
+            margin:0;
+        }
+        .checkbox1+label{
+            display:flex;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .checkbox1:checked+label,.radio1:checked+label{
+            border: 1px solid #ff919f;
+        }
+        .checkbox1:checked+label::after{
+            margin: auto;
+            content: '\2714';
+            color: #ff919f;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .radio1+label{
+            display:inline-flex;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+        }
+        .radio1:checked+label::after{
+            margin: auto;
+            content: '';
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            background-color: #ff919f;
+        }
+        .checkbox-sprite+label{
+            display:inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("sprite.png")  -34px -0px no-repeat
+        }
+        .checkbox-sprite:checked+label{
+            background: url("sprite.png")  -0px -0px no-repeat
+        }
+        .radio-sprite+label{
+            display:inline-block;
+            width: 20px;
+            height: 20px;
+            background: url("sprite.png")  -101px -0px no-repeat
+        }
+        .radio-sprite:checked+label{
+            background: url("sprite.png")  -69px -0px no-repeat
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h2>用伪元素实现</h2>
+    <h3>checkbox</h3>
+    <input type="checkbox" name="" id="checkbox1" class="checkbox1"/>
+    <label for="checkbox1"></label>
+</div>
+<div>
+    <h3>radio</h3>
+    <input type="radio" name="radio1" id="radio1" class="radio1">
+    <label for="radio1"></label>
+    <input type="radio" name="radio1" id="radio2" class="radio1">
+    <label for="radio2"></label>
+</div>
+
+<div>
+<h2>用雪碧图实现</h2>
+<h3>checkbox</h3>
+<input type="checkbox" name="" id="checkbox-sprite" class="checkbox-sprite"/>
+<label for="checkbox-sprite"></label>
+</div>
+
+<div>
+    <h3>radio</h3>
+    <input type="radio" name="radio2" id="radio1-sprite" class="radio-sprite">
+    <label for="radio1-sprite"></label>
+    <input type="radio" name="radio2" id="radio2-sprite" class="radio-sprite">
+    <label for="radio2-sprite"></label>
+</div>
+
+</body>
+</html>
+<script>
+
+
+</script>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义右键菜单</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        .wrap{
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #dddddd;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .menu{
+            position: absolute;
+            display: none;
+            margin: 0;
+            padding: 0;
+            border: 1px solid #ddd;
+            width: 180px;
+            background-color: #fff;
+        }
+        .menu li{
+            list-style-type:none;
+            cursor: pointer;
+            padding: 12px;
+        }
+        .menu li:hover{
+            background-color: #c5c5c5;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    我是自定义区域~~~~
+</div>
+<ul class="menu">
+    <li>Menu Item 1</li>
+    <li>Menu Item 2</li>
+    <li>Menu Item 3</li>
+    <li>Menu Item 4</li>
+    <li>Menu Item 5</li>
+    <li>Menu Item 6</li>
+</ul>
+</body>
+<script>
+    (function () {
+        var wrap = document.querySelector(".wrap");
+        var mymeun = document.querySelector(".menu");
+
+        document.oncontextmenu = function (e) {
+            var ev = e || window.event;
+            ev.preventDefault();
+            mymeun.style.display = "block";
+            var meunW = mymeun.clientWidth;
+            var menuH = mymeun.clientHeight;
+            var winW = document.documentElement.clientWidth;
+            var winH = document.documentElement.clientHeight;
+            var mousepos = function (ev) {
+                var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+                var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+                var x = ev.pageX || ev.clientX + scrollX;
+                var y = ev.pageY || ev.clientY + scrollY;
+                return {'x': x, 'y': y};
+            };
+            var mouseX = mousepos(ev).x;
+            var mouseY = mousepos(ev).y;
+            if (mouseY + menuH > winH) {
+                mymeun.style.top = mouseY - menuH + "px";
+            }
+            else {
+                mymeun.style.top = mouseY + "px";
+            }
+            if (mouseX + meunW > winW) {
+                mymeun.style.left = mouseX - meunW + "px"
+            }
+            else {
+                mymeun.style.left = mouseX + "px";
+            }
+        };
+        var dialogtext = function (e) {
+             var ev = e||window.event;
+             alert(ev.target.innerText)
+        };
+       document.onclick = function (e) {
+           var ev = e||window.event;
+           if(ev.target.className!=="wrap"){
+               mymeun.style.display = "none";
+           }
+       };
+       if(addEventListener){
+           mymeun.addEventListener("click",dialogtext,false)
+       }
+       else{
+           mymeun.attachEvent("onclick",dialogtext)
+       }
+
+
+    })()
+</script>
+</html>
