@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态数据绑定（二）</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/normalize.css" media="all">
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+</head>
+<body>
+
+<p>请打开控制台查看效果</p>
+
+</body>
+<script>
+
+   function Observer(data) {
+       this.data = data;
+       this.walk(data);
+       this.eventbus = new Event();
+   }
+   Observer.prototype = {
+       walk:function (obj) {
+           let val,
+               key;
+           for(key in obj){
+               if(obj.hasOwnProperty(key)){
+                   val = obj[key];
+                    if(typeof val ==="object"){
+                        new Observer(val);//如果是对象就的就进行递归，一致到底层
+                    }
+                   this.convert(key,val)
+               }
+           }
+       },
+       convert:function (key,val) {
+           let _this = this;
+           Object.defineProperty(this.data,key,{
+               enumerable: true,
+               configurable: true,
+               get:function () {
+                  console.log("你访问了" + key);
+                   return val;
+               },
+               set:function (newVal) {
+                   console.log(  "设置了"+ key );
+                   console.log("你设置了新" + key + "的值为" + newVal);
+                   if(typeof newVal === "object"){
+                       new Observer(newVal);
+                   }
+                   _this.eventbus.emit(key,val,newVal);
+                   if (newVal === val) return;
+                   val = newVal;
+               }
+           })
+       },
+       $watch:function (attr,callback) {
+           this.eventbus.on(attr,callback)
+       }
+   };
+   function Event() {
+       this.event = {};
+   }
+   Event.prototype = {
+       on:function (attr,callback) {
+           if(this.event[attr]){
+               this.event[attr].push(callback);
+           }
+           else {
+               this.event[attr] = [callback];
+           }
+       },
+       off:function (attr) {
+           let key;
+           if(key in this.event){
+               if(this.event.hasOwnProperty(key)&& key===attr){
+                   delete this.event[key]
+               }
+           }
+       },
+       emit:function (attr,...arg) {
+           this.event[attr] && this.event[attr].forEach(function (item) {
+               item(...arg);
+           })
+       }
+   };
+   
+
+    let data = {
+        user: {
+            name: "spezz07",
+            age: "24"
+        },
+        address: {
+            city: "gd"
+        },
+        age:24
+    };
+   let app = new Observer(data);
+   app.$watch('age', function(oldVal, newVal){
+       console.log(`我的年龄变了，原来是: ${oldVal}岁，现在是：${newVal}岁了`)
+   });
+
+   app.$watch('age', function(oldVal, newVal){
+       console.log(`我的年龄真的变了诶，竟然年轻了${oldVal - newVal}岁`)
+   });
+
+</script>
+</html>
