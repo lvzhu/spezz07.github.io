@@ -57,10 +57,9 @@
            this.eventbus.on(attr,callback)
        }
    };
-   function Event() {
-       this.event = {};
-   }
+   function Event() {};
    Event.prototype = {
+       event:{},
        on:function (attr,callback) {
            if(this.event[attr]){
                this.event[attr].push(callback);
@@ -78,13 +77,11 @@
            }
        },
        emit:function (attr,...arg) {
-           this.event[attr] && this.event[attr].forEach(function (item) {
+           this.event[attr].forEach(function (item) {
                item(...arg);
            })
        }
    };
-   
-
     let data = {
         user: {
             name: "spezz07",
