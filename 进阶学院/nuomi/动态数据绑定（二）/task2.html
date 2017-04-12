@@ -47,7 +47,12 @@
                    if(typeof newVal === "object"){
                        new Observer(newVal);
                    }
-                   _this.eventbus.emit(key,val,newVal);
+                   if(_this.eventbus.event[key]){
+                       _this.eventbus.emit(key,val,newVal);
+                   }
+                   else {
+                       console.log(`${key}属性还没用$watch方法进行监测`)
+                   }
                    if (newVal === val) return;
                    val = newVal;
                }
@@ -57,7 +62,7 @@
            this.eventbus.on(attr,callback)
        }
    };
-   function Event() {};
+   function Event() {}
    Event.prototype = {
        event:{},
        on:function (attr,callback) {
