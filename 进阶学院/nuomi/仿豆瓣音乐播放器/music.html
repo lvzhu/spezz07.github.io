@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>仿豆瓣音乐播放器</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/normalize.css" media="all">
+    <link rel="stylesheet" type="text/css" href="style.css" media="all">
+    <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<div class="music-container">
+    <div class="music-left">
+        <div class="music-mes">
+            <div class="music-title">标题</div>
+            <div class="music-singer">歌手</div>
+        </div>
+        <div class="music-content">
+            <div class="music-time">0:00</div>
+            <br>
+            <audio src="./music/music.mp3"  class="music-load"></audio>
+            <div class="music-len">
+                <span class="music-len-top"></span>
+                <span class="music-len-bottom"></span>
+            </div>
+        </div>
+        <div class="music-control">
+            <div class="music-sel">
+                <span class="glyphicon glyphicon-heart"></span>
+                <span class="glyphicon glyphicon-trash"></span>
+            </div>
+            <div class="music-play">
+                <span class="glyphicon glyphicon-step-backward"></span>
+                <span class="glyphicon glyphicon-play"></span>
+                <span class="glyphicon glyphicon-step-forward"></span>
+            </div>
+        </div>
+    </div>
+   <div class="music-right">
+       <div class="music-circle "></div>
+   </div>
+</div>
+<!--
+<div class="music-list">
+    <ul>
+        <li><span>1</span><span>2</span><span>3</span></li>
+        <li><span>1</span><span>2</span><span>3</span></li>
+        <li><span>1</span><span>2</span><span>3</span></li>
+        <li><span>1</span><span>2</span><span>3</span></li>
+    </ul>
+</div>-->
+</body>
+<script>
+    (function () {
+        let data = [
+            {
+                singer:"陈奕迅",
+                title:"陀飞轮",
+                src:"music/music.mp3",
+                cover:"img/cover1.jpg"
+            },
+            {
+                singer:"Beyond",
+                title:"大地",
+                src:"music/music2.mp3",
+                cover:"img/cover2.jpg"
+            },
+            {
+                singer:"陈奕迅",
+                title:"K歌之王",
+                src:"music/music3.mp3",
+                cover:"img/cover3.jpg"
+            },
+        ];
+        let audio = document.querySelector(".music-load");
+        let index = 0;
+        let jindu = $(".music-len-top");
+        let sc;
+        let musicPlay =  function (index) {
+                $(".music-title").text(data[index].title);
+                $(".music-singer").text(data[index].singer);
+                $(".music-circle").css("background-image",`url("${data[index].cover}")`);
+                audio.src= `./${data[index].src}`;
+                audio.currentTime = 0;
+                jindu.css("width",0);
+                sc = setInterval(musictime,1000);
+        };
+        $(".music-play span:nth-child(2)").click(function () {
+            if(audio.paused){
+               $(".glyphicon-play").attr("class", "glyphicon glyphicon-pause");
+               $(".music-circle").addClass("music-circle-rotate");
+                audio.play();
+                sc = setInterval(musictime,1000);
+            }
+            else {
+                $(".glyphicon-pause").attr("class", "glyphicon glyphicon-play");
+                $(".music-circle").removeClass("music-circle-rotate");
+                audio.pause();
+                clearInterval(sc);
+                sc = null;
+            }
+        });
+        $(".music-play span:nth-child(3)").click(function (){
+            if(index===data.length-1){
+                index = 0;
+                musicPlay(index);
+            }
+            else{
+                index++;
+                musicPlay(index);
+            }
+            audio.play();
+            $(".music-circle").addClass("music-circle-rotate");
+            $(".music-play span:nth-child(2)").attr("class", "glyphicon glyphicon-pause")
+        });
+        $(".music-play span:nth-child(1)").click(function (){
+            if(index===0){
+                index = data.length-1;
+                musicPlay(index);
+            }
+            else{
+                index--;
+                musicPlay(index);
+            }
+            audio.play();
+            $(".music-circle").addClass("music-circle-rotate");
+            $(".music-play span:nth-child(2)").attr("class", "glyphicon glyphicon-pause")
+        });
+        $(".music-len").click(function (e) {
+                 let w =  e.offsetX;
+                 jindu.css("width",parseInt(w)+"px");
+                 let time = audio.duration*((w/400));
+                 audio.currentTime = time;
+                 if(audio.paused){
+                   $(".glyphicon-play").attr("class", "glyphicon glyphicon-pause");
+                   $(".music-circle").addClass("music-circle-rotate");
+                   audio.play();
+                 }
+                 musictime()
+        });
+        musicPlay(index);
+        function musictime() {
+            let m = Math.floor(audio.currentTime/60);
+            let s = Math.floor(audio.currentTime%60);
+            let nowtime = audio.currentTime/audio.duration;
+            if(s<10){
+                $(".music-time").text(m+":"+"0"+s);
+            }
+            else{
+                $(".music-time").text(m+":"+s);
+            }
+            jindu.css("width",parseInt(nowtime*400)+"px");
+            if(jindu.css("width")==="400px"){
+                $(".music-play span:nth-child(3)").trigger("click");
+            }
+
+}
+
+    })()
+
+</script>
+</html>
