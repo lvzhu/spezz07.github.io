@@ -24,7 +24,7 @@
     });//音乐数据
     searchbtn.onclick = function () {
         let searchvalue = document.querySelector(".search-form").value;
-        $.getJSON(`http://route.showapi.com/213-1?showapi_appid=35940&showapi_sign=f1a4fcbd4d4e45eebcf2d9f700aadd9a&keyword=${searchvalue}`,function (data) {
+        $.getJSON(`https://route.showapi.com/213-1?showapi_appid=35940&showapi_sign=f1a4fcbd4d4e45eebcf2d9f700aadd9a&keyword=${searchvalue}`,function (data) {
             mContent = [];
             datalist = data;
             datalist["showapi_res_body"]["pagebean"]["contentlist"].forEach(function (item) {
