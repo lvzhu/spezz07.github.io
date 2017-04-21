@@ -11,7 +11,12 @@
 
 </head>
 <body>
-
+<div class="input-group search">
+    <input type="text" class="form-control search-form" placeholder="请输入你要查找的歌名或人名">
+    <span class="input-group-btn">
+        <button class="btn btn-default search-enter" type="button">确定</button>
+      </span>
+</div>
 <div class="music-container">
     <div class="music-left">
         <div class="music-mes">
@@ -21,15 +26,19 @@
         <div class="music-content">
             <div class="music-time">0:00</div>
             <br>
-            <audio src="./music/music.mp3"  class="music-load"></audio>
+            <audio src=""  class="music-load"></audio>
             <div class="music-len">
                 <span class="music-len-top"></span>
                 <span class="music-len-bottom"></span>
             </div>
         </div>
         <div class="music-control">
-            <div class="music-sel">
-                <span class="glyphicon glyphicon-heart"></span>
+            <div class="music-vol">
+               <span class="glyphicon glyphicon-volume-down"></span>
+                <input type="range" step="1" value="60" class="volume" min="0" max="100" >
+            </div>
+            <div class="music-operating">
+                <span class="glyphicon glyphicon-retweet"></span>
                 <span class="glyphicon glyphicon-trash"></span>
             </div>
             <div class="music-play">
@@ -40,126 +49,14 @@
         </div>
     </div>
    <div class="music-right">
-       <div class="music-circle "></div>
+       <div class="music-circle"></div>
    </div>
 </div>
-<!--
+
 <div class="music-list">
-    <ul>
-        <li><span>1</span><span>2</span><span>3</span></li>
-        <li><span>1</span><span>2</span><span>3</span></li>
-        <li><span>1</span><span>2</span><span>3</span></li>
-        <li><span>1</span><span>2</span><span>3</span></li>
-    </ul>
-</div>-->
+    <ul></ul>
+</div>
 </body>
-<script>
-    (function () {
-        let data = [
-            {
-                singer:"陈奕迅",
-                title:"陀飞轮",
-                src:"music/music.mp3",
-                cover:"img/cover1.jpg"
-            },
-            {
-                singer:"Beyond",
-                title:"大地",
-                src:"music/music2.mp3",
-                cover:"img/cover2.jpg"
-            },
-            {
-                singer:"陈奕迅",
-                title:"K歌之王",
-                src:"music/music3.mp3",
-                cover:"img/cover3.jpg"
-            },
-        ];
-        let audio = document.querySelector(".music-load");
-        let index = 0;
-        let jindu = $(".music-len-top");
-        let sc;
-        let musicPlay =  function (index) {
-                $(".music-title").text(data[index].title);
-                $(".music-singer").text(data[index].singer);
-                $(".music-circle").css("background-image",`url("${data[index].cover}")`);
-                audio.src= `./${data[index].src}`;
-                audio.currentTime = 0;
-                jindu.css("width",0);
-                sc = setInterval(musictime,1000);
-        };
-        $(".music-play span:nth-child(2)").click(function () {
-            if(audio.paused){
-               $(".glyphicon-play").attr("class", "glyphicon glyphicon-pause");
-               $(".music-circle").addClass("music-circle-rotate");
-                audio.play();
-                sc = setInterval(musictime,1000);
-            }
-            else {
-                $(".glyphicon-pause").attr("class", "glyphicon glyphicon-play");
-                $(".music-circle").removeClass("music-circle-rotate");
-                audio.pause();
-                clearInterval(sc);
-                sc = null;
-            }
-        });
-        $(".music-play span:nth-child(3)").click(function (){
-            if(index===data.length-1){
-                index = 0;
-                musicPlay(index);
-            }
-            else{
-                index++;
-                musicPlay(index);
-            }
-            audio.play();
-            $(".music-circle").addClass("music-circle-rotate");
-            $(".music-play span:nth-child(2)").attr("class", "glyphicon glyphicon-pause")
-        });
-        $(".music-play span:nth-child(1)").click(function (){
-            if(index===0){
-                index = data.length-1;
-                musicPlay(index);
-            }
-            else{
-                index--;
-                musicPlay(index);
-            }
-            audio.play();
-            $(".music-circle").addClass("music-circle-rotate");
-            $(".music-play span:nth-child(2)").attr("class", "glyphicon glyphicon-pause")
-        });
-        $(".music-len").click(function (e) {
-                 let w =  e.offsetX;
-                 jindu.css("width",parseInt(w)+"px");
-                 let time = audio.duration*((w/400));
-                 audio.currentTime = time;
-                 if(audio.paused){
-                   $(".glyphicon-play").attr("class", "glyphicon glyphicon-pause");
-                   $(".music-circle").addClass("music-circle-rotate");
-                   audio.play();
-                 }
-                 musictime()
-        });
-        musicPlay(index);
-        function musictime() {
-            let m = Math.floor(audio.currentTime/60);
-            let s = Math.floor(audio.currentTime%60);
-            let nowtime = audio.currentTime/audio.duration;
-            if(s<10){
-                $(".music-time").text(m+":"+"0"+s);
-            }
-            else{
-                $(".music-time").text(m+":"+s);
-            }
-            jindu.css("width",parseInt(nowtime*400)+"px");
-            if(jindu.css("width")==="400px"){
-                $(".music-play span:nth-child(3)").trigger("click");
-            }
-
-}
-
-    })()
-
-</script>
+<script src="list.js"></script>
+<script src="musicPlay.js"></script>
 </html>
