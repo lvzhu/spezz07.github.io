@@ -19,6 +19,7 @@
     let datalist = list;//默认打开的音乐列表
     let lastclick;
     let mIndex = 0;
+
     datalist["showapi_res_body"]["pagebean"]["contentlist"].forEach(function (item) {
         mContent.push(item)
     });//音乐数据
@@ -32,7 +33,7 @@
             });
             mIndex = 0;
             musiclist();
-            new MusicPlay(mIndex)
+            app.play();
         });
     };//查找歌曲
     function musiclist() {
@@ -62,8 +63,7 @@
             this.pic = mContent[this.mindex]["albumpic_big"];
             this.strategy = 0;
             this.init();
-            this.play()
-
+            this.play();
         }
         init(){//事件绑定
             musicnext.addEventListener("click",this.next.bind(this));
@@ -95,10 +95,7 @@
             if(!musicload.paused){
                 musicload.pause();
             }
-            if(this.mindex!== mIndex){
-                this.change();
-                this.play()
-            }
+            this.change();
             musicload.src = this.src;
             musictitle.innerText = this.title;
             musicsinger.innerText = this.singer;
@@ -237,7 +234,8 @@
                 this.play();
             }
         }
+
     }
     musiclist();
-    new MusicPlay(mIndex)
+     let app = new MusicPlay(mIndex)
 })();
